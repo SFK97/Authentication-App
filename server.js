@@ -1,6 +1,7 @@
 require("dotenv").config({ path: "./config.env" });
 const express = require("express");
 const connectDB = require("./config/db");
+const errorHandler = require("./middleware/error");
 
 //Connect DB
 connectDB();
@@ -10,6 +11,10 @@ const app = express();
 app.use(express.json()); //middleware to allow us to get data from request.body
 
 app.use("/api/auth", require("./routes/auth")); // when request comes in, middleware catches it and checks, then redirects to auth router
+
+//Error Handler (Last piece of middleware)
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
