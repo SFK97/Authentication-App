@@ -11,6 +11,7 @@ const app = express();
 app.use(express.json()); //middleware to allow us to get data from request.body
 
 app.use("/api/auth", require("./routes/auth")); // when request comes in, middleware catches it and checks, then redirects to auth router
+app.use("/api/private", require("./routes/private"));
 
 //Error Handler (Last piece of middleware)
 
