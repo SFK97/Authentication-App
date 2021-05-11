@@ -5,18 +5,23 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently -k \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.6",
-    "mongoose": "^5.12.3"
+    "mongoose": "^5.12.3",
+    "nodemailer": "^6.5.0",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
